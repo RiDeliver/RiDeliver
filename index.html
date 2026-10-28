@@ -3,277 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RiDeliver.ph | Fast Food & Gadget Delivery Service</title>
-    <!-- Tailwind CSS CDN -->
+    <title>RiDeliver.ph</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-800 font-sans">
 
-    <!-- Navigation Header -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-2 cursor-pointer" onclick="switchTab('home')">
-                <div class="bg-brand-600 p-2 rounded-xl text-white flex items-center justify-center">
-                    <i data-lucide="bike" class="w-6 h-6"></i>
-                </div>
-                <span class="text-xl font-bold text-slate-900 tracking-tight">RiDeliver<span class="text-brand-600">.ph</span></span>
-            </div>
-            
-            <nav class="hidden md:flex space-x-1">
-                <button onclick="switchTab('home')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium text-brand-600 bg-brand-50 transition-colors" data-target="home">Home</button>
-                <button onclick="switchTab('menu')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors" data-target="menu">Menu & Gadgets</button>
-                <button onclick="switchTab('tracker')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors" data-target="tracker">Order Tracker</button>
-                <button onclick="switchTab('partner')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors" data-target="partner">Be a Partner / Rider</button>
+    <!-- Header -->
+    <header class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <span class="text-xl font-bold text-blue-600 cursor-pointer" onclick="switchTab('home')">RiDeliver.ph</span>
+            <nav class="flex space-x-2">
+                <button onclick="switchTab('home')" class="px-3 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg">Home</button>
+                <button onclick="switchTab('menu')" class="px-3 py-2 text-sm font-medium text-slate-600">Menu</button>
+                <button onclick="switchTab('tracker')" class="px-3 py-2 text-sm font-medium text-slate-600">Tracker</button>
             </nav>
-
-            <div class="flex items-center space-x-3">
-                <button onclick="switchTab('menu')" class="bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-all shadow-sm">
-                    Order Now
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Nav Menu Bar -->
-        <div class="md:hidden flex justify-around border-t border-slate-100 py-2 bg-white">
-            <button onclick="switchTab('home')" class="mobile-nav-btn flex flex-col items-center text-xs font-medium text-brand-600" data-target="home">
-                <i data-lucide="home" class="w-5 h-5 mb-0.5"><span>Home</span></i>
-            </button>
-            <button onclick="switchTab('menu')" class="mobile-nav-btn flex flex-col items-center text-xs font-medium text-slate-500" data-target="menu">
-                <i data-lucide="utensils" class="w-5 h-5 mb-0.5"><span>Menu</span></i>
-            </button>
-            <button onclick="switchTab('tracker')" class="mobile-nav-btn flex flex-col items-center text-xs font-medium text-slate-500" data-target="tracker">
-                <i data-lucide="map-pin" class="w-5 h-5 mb-0.5"><span>Tracker</span></i>
-            </button>
-            <button onclick="switchTab('partner')" class="mobile-nav-btn flex flex-col items-center text-xs font-medium text-slate-500" data-target="partner">
-                <i data-lucide="user-plus" class="w-5 h-5 mb-0.5"><span>Apply</span></i>
-            </button>
         </div>
     </header>
 
-    <!-- Main Container Content -->
-    <main class="flex-grow">
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-10">
+        <!-- Home Tab -->
+        <div id="tab-home" class="tab-pane text-center">
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-4">Fast Food & Gadget Delivery</h1>
+            <p class="text-slate-600 mb-6">Mabilis at maaasahang paghahatid sa iyong pintuan.</p>
+            <button onclick="switchTab('menu')" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold">Mag-order Na</button>
+        </div>
 
-        <!-- 1. HOME TAB -->
-        <section id="tab-home" class="tab-content">
-            <!-- Hero Banner -->
-            <div class="relative bg-slate-900 text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-                <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
-                <div class="max-w-4xl mx-auto text-center relative z-10">
-                    <span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full text-xs font-semibold bg-brand-500/20 text-brand-400 border border-brand-500/30 mb-6">
-                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Fast & Reliable Delivery in Your Area
-                    </span>
-                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
-                        Food, Gadgets & Essentials Delivered Fast with <span class="text-brand-500">RiDeliver.ph</span>
-                    </h1>
-                    <p class="text-lg sm:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-                        Mula sa iyong paboritong lutong-bahay at fast food hanggang sa mga bagong tech gadgets—ihahatid namin nang mabilis at ligtas sa pintuan mo.
-                    </p>
-                    <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <button onclick="switchTab('menu')" class="bg-brand-600 hover:bg-brand-700 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
-                            <i data-lucide="shopping-bag" class="w-5 h-5"></i> Browse Menu & Gadgets
-                        </button>
-                        <button onclick="switchTab('partner')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold px-8 py-3.5 rounded-xl transition-all flex items-center justify-center gap-2">
-                            <i data-lucide="briefcase" class="w-5 h-5"></i> Join as Merchant / Rider
-                        </button>
-                    </div>
-                </div>
+        <!-- Menu Tab -->
+        <div id="tab-menu" class="tab-pane hidden">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">Pumili ng Pagkain o Gadget</h2>
+            <div class="bg-white p-4 rounded-xl border shadow-sm mb-4">
+                <h3 class="font-bold">Crispy Pata Special - ₱450</h3>
+                <button onclick="alert('Naidagdag na sa cart!')" class="mt-2 bg-slate-900 text-white text-xs px-4 py-2 rounded-lg">Add to Cart</button>
             </div>
+        </div>
 
-            <!-- Features Grid -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-slate-900">Bakit RiDeliver.ph?</h2>
-                    <p class="text-slate-600 mt-2">Ang pinagkakatiwalaang serbisyo para sa iyong araw-araw na pangangailangan.</p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="zap" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Mabilis na Delivery</h3>
-                        <p class="text-slate-600 leading-relaxed">Sinisiguro naming mainit pa ang pagkain o ligtas na darating ang iyong mga inorder na gadgets sa loob ng ilang minuto.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="shield-check" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Ligtas at Mapagkakatiwalaan</h3>
-                        <p class="text-slate-600 leading-relaxed">Propesyonal at beripikadong mga rider ang maghahatid ng iyong mga transaksyon nang may pag-iingat.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                        <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="smartphone" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Food & Gadgets sa Isang App</h3>
-                        <p class="text-slate-600 leading-relaxed">Hindi mo na kailangang lumipat ng ibang app para sa pagkain o tech needs mo—nandito na lahat.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Tracker Tab -->
+        <div id="tab-tracker" class="tab-pane hidden">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">Order Status Tracker</h2>
+            <input type="text" placeholder="Ilagay ang Tracking ID" class="w-full px-3 py-2 border rounded-xl mb-3">
+            <button onclick="alert('Ang iyong order ay On the Way na!')" class="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm">I-track</button>
+        </div>
+    </main>
 
-        <!-- 2. MENU & GADGETS TAB -->
-        <section id="tab-menu" class="tab-content hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-                <div>
-                    <h2 class="text-3xl font-bold text-slate-900">Explore Menu & Gadgets</h2>
-                    <p class="text-slate-600">Pili na sa iyong mga paboritong pagkain at tech items.</p>
-                </div>
-                <!-- Search Filter Input -->
-                <div class="relative w-full md:w-72">
-                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                        <i data-lucide="search" class="w-4 h-4"></i>
-                    </span>
-                    <input type="text" id="searchInput" onkeyup="filterItems()" placeholder="Maghanap ng pagkain o gadget..." 
-                        class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
-                </div>
-            </div>
-
-            <!-- Category Pills -->
-            <div class="flex gap-2 overflow-x-auto pb-4 mb-6">
-                <button onclick="filterCategory('all')" class="cat-btn px-4 py-2 rounded-xl text-sm font-semibold bg-brand-600 text-white whitespace-nowrap shadow-sm transition-all" data-cat="all">Lahat</button>
-                <button onclick="filterCategory('food')" class="cat-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white text-slate-600 border border-slate-200 whitespace-nowrap hover:bg-slate-100 transition-all" data-cat="food">🍲 Pagkain</button>
-                <button onclick="filterCategory('gadget')" class="cat-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white text-slate-600 border border-slate-200 whitespace-nowrap hover:bg-slate-100 transition-all" data-cat="gadget">📱 Gadgets</button>
-            </div>
-
-            <!-- Items Grid -->
-            <div id="itemsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Item 1 -->
-                <div class="item-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between" data-category="food" data-name="crispy pata special">
-                    <div class="p-5">
-                        <div class="flex justify-between items-start mb-3">
-                            <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded-full">Food</span>
-                            <span class="text-lg font-bold text-slate-900">₱450.00</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-1">Crispy Pata Special</h3>
-                        <p class="text-slate-600 text-sm">Malutong na balat at malambot na laman, kasama ang espesyal na toyomansi dip.</p>
-                    </div>
-                    <div class="p-5 pt-0">
-                        <button onclick="addToCart('Crispy Pata Special', 450)" class="w-full bg-slate-900 hover:bg-brand-600 text-white text-sm font-semibold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-2">
-                            <i data-lucide="plus-circle" class="w-4 h-4"></i> Add to Order
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="item-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between" data-category="food" data-name="beef pares overload">
-                    <div class="p-5">
-                        <div class="flex justify-between items-start mb-3">
-                            <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-1 rounded-full">Food</span>
-                            <span class="text-lg font-bold text-slate-900">₱180.00</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-1">Beef Pares Overload</h3>
-                        <p class="text-slate-600 text-sm">Masabaw, malambot na baka na may garlic rice at libreng sabaw.</p>
-                    </div>
-                    <div class="p-5 pt-0">
-                        <button onclick="addToCart('Beef Pares Overload', 180)" class="w-full bg-slate-900 hover:bg-brand-600 text-white text-sm font-semibold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-2">
-                            <i data-lucide="plus-circle" class="w-4 h-4"></i> Add to Order
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="item-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between" data-category="gadget" data-name="wireless bluetooth earbuds">
-                    <div class="p-5">
-                        <div class="flex justify-between items-start mb-3">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-1 rounded-full">Gadget</span>
-                            <span class="text-lg font-bold text-slate-900">₱799.00</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-1">Wireless Bluetooth Earbuds</h3>
-                        <p class="text-slate-600 text-sm">HD Sound quality na may long battery life at noise reduction feature.</p>
-                    </div>
-                    <div class="p-5 pt-0">
-                        <button onclick="addToCart('Wireless Bluetooth Earbuds', 799)" class="w-full bg-slate-900 hover:bg-brand-600 text-white text-sm font-semibold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-2">
-                            <i data-lucide="plus-circle" class="w-4 h-4"></i> Add to Order
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="item-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between" data-category="gadget" data-name="fast charging powerbank 10000mah">
-                    <div class="p-5">
-                        <div class="flex justify-between items-start mb-3">
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-1 rounded-full">Gadget</span>
-                            <span class="text-lg font-bold text-slate-900">₱650.00</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-1">Fast Charging Powerbank 10000mAh</h3>
-                        <p class="text-slate-600 text-sm">Compact at madaling dalhin na powerbank para sa iyong smartphones at gadgets.</p>
-                    </div>
-                    <div class="p-5 pt-0">
-                        <button onclick="addToCart('Fast Charging Powerbank 10000mAh', 650)" class="w-full bg-slate-900 hover:bg-brand-600 text-white text-sm font-semibold py-2.5 rounded-xl transition-colors flex items-center justify-center gap-2">
-                            <i data-lucide="plus-circle" class="w-4 h-4"></i> Add to Order
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Cart Summary Box -->
-            <div class="mt-12 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm max-w-xl mx-auto">
-                <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                    <i data-lucide="shopping-cart" class="w-5 h-5 text-brand-600"></i> Current Order Cart
-                </h3>
-                <div id="cartItems" class="text-slate-600 text-sm mb-4 border-b border-slate-100 pb-4">
-                    Walang laman ang iyong cart sa kasalukuyan.
-                </div>
-                <div class="flex justify-between items-center font-bold text-slate-900 mb-6">
-                    <span>Total:</span>
-                    <span id="cartTotal">₱0.00</span>
-                </div>
-                <button onclick="checkoutOrder()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 rounded-xl transition-all shadow-sm">
-                    Proceed to Checkout
-                </button>
-            </div>
-        </section>
-
-        <!-- 3. ORDER TRACKER TAB -->
-        <section id="tab-tracker" class="tab-content hidden max-w-3xl mx-auto px-4 py-12">
-            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-                <h2 class="text-2xl font-bold text-slate-900 mb-2">Order Status Tracker</h2>
-                <p class="text-slate-600 text-sm mb-6">Ilagay ang iyong Order Tracking ID para malaman ang kasalukuyang estado ng iyong delivery.</p>
-                
-                <div class="flex gap-3 mb-8">
-                    <input type="text" id="trackingInput" placeholder="Halimbawa: RID-98241" class="flex-grow px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
-                    <button onclick="trackOrder()" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all shadow-sm">
-                        Track
-                    </button>
-                </div>
-
-                <div id="trackingResult" class="hidden border-t border-slate-100 pt-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-sm font-semibold text-slate-500">Tracking ID: <span id="displayId" class="text-slate-900"></span></span>
-                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full" id="displayStatus">On the Way</span>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-xs">✓</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-slate-900">Order Confirmed</h4>
-                                <p class="text-xs text-slate-500">Tinanggap na ng merchant ang iyong order.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-xs">✓</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-slate-900">Packed / Dispatched</h4>
-                                <p class="text-xs text-slate-500">Inihanda at ibinigay na sa delivery rider.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs anima
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
