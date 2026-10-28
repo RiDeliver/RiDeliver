@@ -3,54 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RiDeliver.ph</title>
+    <title>RiDeliver.ph | Fast Food & Gadget Delivery Service</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
 
     <!-- Header -->
-    <header class="bg-white border-b sticky top-0 z-50">
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-            <span class="text-xl font-bold text-blue-600 cursor-pointer" onclick="switchTab('home')">RiDeliver.ph</span>
-            <nav class="flex space-x-2">
-                <button onclick="switchTab('home')" class="px-3 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg">Home</button>
-                <button onclick="switchTab('menu')" class="px-3 py-2 text-sm font-medium text-slate-600">Menu</button>
-                <button onclick="switchTab('tracker')" class="px-3 py-2 text-sm font-medium text-slate-600">Tracker</button>
+            <div class="flex items-center space-x-2 cursor-pointer" onclick="switchTab('home')">
+                <div class="bg-blue-600 p-2 rounded-xl text-white flex items-center justify-center">
+                    <i data-lucide="bike" class="w-6 h-6"></i>
+                </div>
+                <span class="text-xl font-bold text-slate-900">RiDeliver<span class="text-blue-600">.ph</span></span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-1">
+                <button onclick="switchTab('home')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium text-blue-600 bg-blue-50" data-target="home">Home</button>
+                <button onclick="switchTab('menu')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100" data-target="menu">Menu & Gadgets</button>
+                <button onclick="switchTab('tracker')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100" data-target="tracker">Order Tracker</button>
+                <button onclick="switchTab('partner')" class="nav-btn px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100" data-target="partner">Be a Partner / Rider</button>
             </nav>
+
+            <div>
+                <button onclick="switchTab('menu')" class="bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded-xl">
+                    Order Now
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Nav -->
+        <div class="md:hidden flex justify-around border-t border-slate-100 py-2 bg-white">
+            <button onclick="switchTab('home')" class="mobile-nav-btn flex flex-col items-center text-xs font-medium text-blue-600" data-target="home">
+                <i data-lucide="home" class="w-5 h-5 mb-0.5"></i><span>Home</span>
+            </button>
+            <button onclick="switchTab('menu')" class="mobile-nav-btn flex flex-col items-center text-xs font-medium text-slate-500" data-target="menu">
+                <i data-lucide="utensils" class="w-5 h-5 mb-0.5"></i><span>Menu</span>
+            </button>
+            <button onclick="switchTab('tracker')" class="mobile-nav-btn flex flex-col items-center text-xs font-medium text-slate-500" data-target="tracker">
+                <i data-lucide="map-pin" class="w-5 h-5 mb-0.5"></i><span>Tracker</span>
+            </button>
+            <button onclick="switchTab('partner')" class="mobile-nav-btn flex flex-col items-center text-xs font-medium text-slate-500" data-target="partner">
+                <i data-lucide="user-plus" class="w-5 h-5 mb-0.5"></i><span>Apply</span>
+            </button>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-4 py-10">
+    <main class="flex-grow">
         <!-- Home Tab -->
-        <div id="tab-home" class="tab-pane text-center">
-            <h1 class="text-3xl font-extrabold text-slate-900 mb-4">Fast Food & Gadget Delivery</h1>
-            <p class="text-slate-600 mb-6">Mabilis at maaasahang paghahatid sa iyong pintuan.</p>
-            <button onclick="switchTab('menu')" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold">Mag-order Na</button>
-        </div>
+        <section id="tab-home" class="tab-content py-12 px-4 text-center max-w-4xl mx-auto">
+            <span class="inline-block py-1 px-3 rounded-full text-xs font-semibold bg-blue-100 text-blue-700 mb-4">Fast & Reliable Delivery</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 mb-6">
+                Food, Gadgets & Essentials Delivered Fast with <span class="text-blue-600">RiDeliver.ph</span>
+            </h1>
+            <p class="text-slate-600 mb-8">Mula sa paboritong lutong-bahay at fast food hanggang sa mga bagong tech gadgets—ihahatid namin nang mabilis at ligtas sa pintuan mo.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="switchTab('menu')" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl shadow">Browse Menu & Gadgets</button>
+                <button onclick="switchTab('partner')" class="bg-slate-200 text-slate-800 font-semibold px-6 py-3 rounded-xl">Join as Merchant / Rider</button>
+            </div>
+        </section>
 
         <!-- Menu Tab -->
-        <div id="tab-menu" class="tab-pane hidden">
-            <h2 class="text-2xl font-bold text-slate-900 mb-4">Pumili ng Pagkain o Gadget</h2>
-            <div class="bg-white p-4 rounded-xl border shadow-sm mb-4">
-                <h3 class="font-bold">Crispy Pata Special - ₱450</h3>
-                <button onclick="alert('Naidagdag na sa cart!')" class="mt-2 bg-slate-900 text-white text-xs px-4 py-2 rounded-lg">Add to Cart</button>
+        <section id="tab-menu" class="tab-content hidden max-w-7xl mx-auto px-4 py-10">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6">Explore Menu & Gadgets</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2 py-0.5 rounded-full">Food</span>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2">Crispy Pata Special</h3>
+                        <p class="text-slate-600 text-sm mt-1">₱450.00 - Malutong na balat at malambot na laman.</p>
+                    </div>
+                    <button onclick="addToCart('Crispy Pata Special', 450)" class="mt-4 w-full bg-slate-900 text-white text-sm font-semibold py-2.5 rounded-xl">Add to Order</button>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-0.5 rounded-full">Gadget</span>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2">Wireless Earbuds</h3>
+                        <p class="text-slate-600 text-sm mt-1">₱799.00 - HD Sound quality na may long battery life.</p>
+                    </div>
+                    <button onclick="addToCart('Wireless Earbuds', 799)" class="mt-4 w-full bg-slate-900 text-white text-sm font-semibold py-2.5 rounded-xl">Add to Order</button>
+                </div>
             </div>
-        </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 max-w-xl mx-auto shadow-sm">
+                <h3 class="text-lg font-bold text-slate-900 mb-3">Current Order Cart</h3>
+                <div id="cartItems" class="text-slate-600 text-sm mb-4">Walang laman ang iyong cart.</div>
+                <div class="flex justify-between font-bold text-slate-900 mb-4">
+                    <span>Total:</span>
+                    <span id="cartTotal">₱0.00</span>
+                </div>
+                <button onclick="checkoutOrder()" class="w-full bg-blue-600 text-white font-semibold py-2.5 rounded-xl">Proceed to Checkout</button>
+            </div>
+        </section>
 
         <!-- Tracker Tab -->
-        <div id="tab-tracker" class="tab-pane hidden">
-            <h2 class="text-2xl font-bold text-slate-900 mb-4">Order Status Tracker</h2>
-            <input type="text" placeholder="Ilagay ang Tracking ID" class="w-full px-3 py-2 border rounded-xl mb-3">
-            <button onclick="alert('Ang iyong order ay On the Way na!')" class="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm">I-track</button>
-        </div>
+        <section id="tab-tracker" class="tab-content hidden max-w-xl mx-auto px-4 py-12">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Order Status Tracker</h2>
+                <div class="flex gap-2 mb-4">
+                    <input type="text" id="trackingInput" placeholder="Ilagay ang Tracking ID (hal. RID-123)" class="flex-grow px-3 py-2 border rounded-xl text-sm">
+                    <button onclick="trackOrder()" class="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-semibold">Track</button>
+                </div>
+                <div id="trackingResult" class="hidden text-sm text-emerald-700 bg-emerald-50 p-3 rounded-xl font-medium">
+                    Status: <span id="displayStatus">On the Way (Papunta na ang rider!)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner Tab -->
+        <section id="tab-partner" class="tab-content hidden max-w-xl mx-auto px-4 py-12">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-4">Be a Partner Merchant or Rider</h2>
+                <form onsubmit="handlePartnerSubmit(event)" class="space-y-4">
+                    <input type="text" placeholder="Buong Pangalan" required class="w-full px-3 py-2 border rounded-xl text-sm">
+                    <input type="tel" placeholder="Contact Number (GCash)" required class="w-full px-3 py-2 border rounded-xl text-sm">
+                    <div class="space-y-2 text-xs text-slate-600 pt-2 border-t">
+                        <label class="flex items-start gap-2">
+                            <input type="checkbox" required class="mt-0.5"> Sang-ayon ako sa <a href="#" onclick="alert('Terms of Service: Sumunod sa alituntunin ng RiDeliver.')" class="text-blue-600 underline">Terms of Service</a>.
+                        </label>
+                        <label class="flex items-start gap-2">
+                            <input type="checkbox" required class="mt-0.5"> Nabasa ko ang <a href="#" onclick="alert('Privacy Policy: Protektado ang iyong data.')" class="text-blue-600 underline">Privacy Policy</a>.
+                        </label>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2.5 rounded-xl text-sm">Isumite ang Aplikasyon</button>
+                </form>
+            </div>
+        </section>
     </main>
 
+    <!-- Script -->
     <script>
+        lucide.createIcons();
+
         function switchTab(tabId) {
-            document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.getElementById('tab-' + tabId).classList.remove('hidden');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if(btn.dataset.target === tabId) {
+                    btn.classList.add('text-blue-600', 'bg-blue-50');
+                    btn.classList.remove('text-slate-600');
+                } else {
+                    btn.classList.remove('text-blue-600', 'bg-blue-50');
+                    btn.classList.add('text-slate-600');
+                }
+            });
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        let cart = [];
+        function addToCart(name, price) {
+            cart.push({name, price});
+            updateCartUI();
+            alert(name + " ay naidagdag na sa cart!");
+        }
+
+        function updateCartUI() {
+            let cartDiv = document.getElementById('cartItems');
+            let totalSpan = document.getElementById('cartTotal');
+            if(cart.length === 0) {
+                cartDiv.innerHTML = "Walang laman ang iyong cart.";
+                totalSpan.innerHTML = "₱0.00";
+                return;
+            }
+            let html = '<ul class="space-y-1 mb-2">';
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price;
+                html += `<li class="flex justify-between"><span>${item.name}</span> <span>₱${item.price}.00</span></li>`;
+            });
+            html += '</ul>';
+            cartDiv.innerHTML = html;
+            totalSpan.innerHTML = `₱${total}.00`;
+        }
+
+        function checkoutOrder() {
+            if(cart.length === 0) {
+                alert('Pumili muna ng item!');
+                return;
+            }
+            alert('Tagumpay ang iyong order! Susundan sa Tracker.');
+            cart = [];
+            updateCartUI();
+            switchTab('tracker');
+        }
+
+        function trackOrder() {
+            let val = document.getElementById('trackingInput').value.trim();
+            if(!val) { alert('Ilagay ang tracking ID.'); return; }
+            document.getElementById('trackingResult').classList.remove('hidden');
+        }
+
+        function handlePartnerSubmit(e) {
+            e.preventDefault();
+            alert('Maraming salamat sa iyong aplikasyon!');
+            e.target.reset();
+            switchTab('home');
         }
     </script>
 </body>
