@@ -230,10 +230,18 @@
         }
 
         function handleAuthSubmit(e) {
-            e.preventDefault();
-            alert('Tagumpay ang iyong aksyon! Maligayang pagdating sa RiDeliver.ph.');
-            closeAuthModal();
-            e.target.reset();
+    e.preventDefault();
+    let email = document.getElementById('userEmailInput').value.trim();
+    let nameFieldVal = document.getElementById('userNameInput').value.trim();
+    let name = nameFieldVal || email.split('@')[0];
+
+    localStorage.setItem('rideliver_user', JSON.stringify({ name: name, email: email }));
+
+    alert('LOGIN OK [2026]: Welcome, ' + name + '!');
+    closeAuthModal();
+    checkLoggedInUser();
+        }
+        
         }
 
         let cart = [];
